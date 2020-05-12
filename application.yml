@@ -1,0 +1,49 @@
+---
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registry-fetch-interval-seconds: 5
+    register-with-eureka: true
+    fetch-registry: true
+---
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 30000
+---
+ribbon:
+  eureka:
+    enabled: true
+  ConnectTimeout: 10000
+  ReadTimeout: 15000
+---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+---
+seguimiento:
+  ruta:
+    prefijo:
+      publicos: /servicios/publicos
+      privados: /servicios/privados
+---
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}

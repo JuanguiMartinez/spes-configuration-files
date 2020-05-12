@@ -1,0 +1,40 @@
+gateway:
+  seguridad:
+    ruta:
+      actuator: /actuator/**
+      autenticacion: servicios/publicos/autenticacion-usuarios
+      complemento: /**
+      privada: /*-service/servicios/privados/**
+      publica: /*-service/servicios/publicos/**
+  filtro:
+    cors:
+      nombre: 'filtros CORS'
+      url: '/*'
+    honeypot:
+      nombre: 'filtro Honeypot'
+      url: '/servicios/publicos/'
+      nombre-campo: 'validacionRobot'
+---
+zuul:
+  routes:
+    gvc-administracion-service:
+      path: /gvc-administracion-service/**
+      service-id: gvc-administracion-service
+    gvc-historico-service:
+      path: /gvc-historico-service/**
+      service-id: gvc-historico-service
+    gvc-interfaz-service:
+      path: /gvc-interfaz-service/**
+      service-id: gvc-interfaz-service
+    gvc-notificacion-service:
+      path: /gvc-notificacion-service/**
+      service-id: gvc-notificacion-service
+    gvc-persistencia-service:
+      sensitive-headers: Cookie,Set-Cookie,Authorization
+      path: /gvc-persistencia-service/**
+      service-id: gvc-persistencia-service
+    gvc-seguridad-service:
+      path: /gvc-seguridad-service/**
+      service-id: gvc-seguridad-service
+  ribbon-isolation-strategy: THREAD
+  sensitive-headers: Cookie,Set-Cookie

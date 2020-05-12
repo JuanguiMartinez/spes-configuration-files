@@ -1,0 +1,35 @@
+# Configuración JWT
+administracion:
+  jwt:
+    token:
+      expiracion: 8
+      llave-secreta: 'guvc-dev 6cuhAxgy3tpDhCus'
+---
+# Configuración procesos automáticos
+administracion:
+  procesos-automaticos:
+    administracion-archivos:
+      frecuencia-depuracion: '5 * * * * ?'
+      semanas-depuracion: 1
+---
+# Configuración DB
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.1.101:1521:pruVID
+    username: gvc_administracion_dev
+    password: CadenaApp$
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: select SYSDATE from DUAL
+      connection-timeout: 60000
+      maximum-pool-size: 5
+      pool-name: vid-costos-development
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        show_sql: true
+        hbm2ddl:
+          auto: none
+        jdbc:
+          batch_size: 500

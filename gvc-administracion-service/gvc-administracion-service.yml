@@ -1,0 +1,68 @@
+# Mensajes de Excepciones
+administracion:
+  rabbitmq:
+    interfaz:
+      topic-name: gvc.interfaz.topic
+      binding-name: gvc.interfaz.activos
+      queue-name: gvc.interfaz.activos.queue
+    historico:
+      topic-name: gvc.historico.topic
+      binding-name-activos: gvc.historico.activos
+      binding-name-salas: gvc.historico.salas
+      queue-name-activos: gvc.historico.activos.queue
+      queue-name-salas: gvc.historico.salas.queue
+  activo:
+    mensajes:
+      estados-diferentes: 'No se puede cambiar el estado de los activos seleccionados'
+      no-encontrado: 'Activo no encontrado'
+      no-guardado: 'Activo no guardado'
+      codigo-duplicado: 'No se permite crear un activo con código existente'
+      campo-fecha-costo: 'fechaVid'
+      campo-estado: 'estado'
+      campo-estado-vid: 'estadoVid'
+      campo-orden-default: 'descripcion'
+      campo-origen: 'origen'
+      formato-fecha: 'yyyy-MM-dd'
+      formato-fecha-response: 'dd/MM/YYYY'
+      orden-datos: 'descendente'
+  compania:
+    mensajes:
+      no-encontrado: 'Compañia no encontrada'
+  obra:
+    mensajes:
+      no-encontrado: 'Obra no encontrada'
+  sede:
+    mensajes:
+      no-encontrado: 'Sede no encontrada'
+  parametro-generales:
+    mensajes:
+      no-encontrado: 'Parametro no encontrado'
+  constantes:
+    comunes:
+      formato-fecha: yyyy-MM-dd
+    filtro:
+      nombre-usuario-autenticado: 'Filtro Usuario autenticado'
+      url-usuario-autenticado: '/servicios/privados/*'
+  administracion-archivo:
+    mensajes:
+      estado-descarga:
+        finalizado: 'Archivo completado para descargar'
+        descargando: 'Archivo en proceso de descarga'
+        archivo-no-encontrado: 'Archivo no encontrado'
+      depuracion:
+        fecha-actual: FECHA_ACTUAL
+        fecha-depuracion: FECHA_DEPURACION
+        mensaje-inicio: 'Se ejecuta depuración el FECHA_ACTUAL con fecha de depuración FECHA_DEPURACION'
+        mensaje-error: 'No se puede eliminar el archivo: '
+        mensaje-fin: 'Fin de la depuración ejecutada el FECHA_ACTUAL'
+        archivos-depurados: 'Total archivos depurados: '
+        archivos-con-error: 'Total archivos con error: '
+    specification:
+      usuario: usuario
+      activo: activo
+      estado: estado
+      modulo: modulo
+      tipo-archivo: tipoArchivo
+      fecha-creacion: fechaInicio
+      ascendente: asc
+      descendente: desc

@@ -1,0 +1,26 @@
+# Mensajes de Excepciones
+historico:
+  rabbit:
+    listener:
+      queue-name-activos: gvc.historico.activos.queue
+      queue-name-salas: gvc.historico.salas.queue
+  activo-historico:
+    mensajes:
+      estados-diferentes: 'No se puede cambiar el estado de los activos seleccionados'
+      modulo-busqueda: 'ActivoHistorico'
+      no-guardado: 'Historico no guardado'
+      no-encontrado: 'Historico no encontrado'
+      existente: 'Actualmente existe un histórico para la fecha ingresada'
+  constantes:
+    comunes:
+      formato-fecha: yyyy-MM-dd
+      campo-fecha-costo: 'fechaVid'
+      campo-estado: 'estado'
+      campo-estado-vid: 'estadoVid'
+      campo-orden-default: 'descripcion'
+      campo-origen: 'origen'
+      formato-fecha-response: 'dd/MM/YYYY'
+      orden-datos: 'descendente'
+    filtro:
+      nombre-usuario-autenticado: 'Filtro Usuario autenticado'
+      url-usuario-autenticado: '/servicios/privados/*'

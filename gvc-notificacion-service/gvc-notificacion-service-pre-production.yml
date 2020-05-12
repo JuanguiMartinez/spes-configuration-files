@@ -1,0 +1,42 @@
+# Configuración JWT
+notificacion:
+  jwt:
+    token:
+      expiracion: 8
+      llave-secreta: 'guvc-preprod 6cuhAxgy3tpDhCus'
+---
+# Configuración DB
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.1.101:1521:pruVID
+    username: gvc_notificacion_pr
+    password: CadenaApp$
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: select SYSDATE from DUAL
+      connection-timeout: 60000
+      maximum-pool-size: 5
+      pool-name: vid-costos-preprod
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        show_sql: true
+        hbm2ddl:
+          auto: none
+        jdbc:
+          batch_size: 500
+---
+# Configuracion RabbitMQ
+spring:
+  rabbitmq:
+    host: rabbit-gvc-preprod
+    port: 5672
+    username: costosvid-user-mq-preprod
+    password: 'costosvid-preprod p@$$'
+    virtual-host: costosvid-vh
+    listener:
+      simple:
+        acknowledge-mode: manual
+        max-concurrency: 1
+        concurrency: 1

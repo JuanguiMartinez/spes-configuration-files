@@ -1,0 +1,7 @@
+# Mensajes de Excepciones
+seguridad:
+  autenticacion:
+    usuario:
+      inactivo: 'Usuario inactivo'
+      no-encontrado: 'Usuario no encontrado'
+    peticion-incorrecta: 'Peticion incorrecta'

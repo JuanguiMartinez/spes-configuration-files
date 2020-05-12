@@ -1,0 +1,22 @@
+gateway:
+  jwt:
+    token:
+      expiracion: 8
+      llave-secreta: 'guvc-preprod 6cuhAxgy3tpDhCus'
+  cors:
+    access-control:
+      allow-credentials:
+        etiqueta: 'Access-Control-Allow-Credentials'
+        valor: 'true'
+      allow-headers:
+        etiqueta: 'Access-Control-Allow-Headers'
+        valor: 'x-requested-with, Content-Type, Authorization'
+      allow-methods:
+        etiqueta: 'Access-Control-Allow-Methods'
+        valor: 'POST, GET, OPTIONS, DELETE, PUT'
+      allow-origin:
+        etiqueta: 'Access-Control-Allow-Origin'
+        valor: '*'
+      max-age:
+        etiqueta: 'Access-Control-Max-Age'
+        valor: '3600'

@@ -1,0 +1,49 @@
+# Configuración JWT
+administracion:
+  jwt:
+    token:
+      expiracion: 8
+      llave-secreta: 'guvc-staging 6cuhAxgy3tpDhCus'
+---
+# Configuración procesos automáticos
+administracion:
+  procesos-automaticos:
+    administracion-archivos:
+      frecuencia-depuracion: '0 0 6 ? * 7'
+      semanas-depuracion: 1
+---
+# Configuración DB
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.1.101:1521:pruVID
+    username: gvc_administracion_qa
+    password: CadenaApp$
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: select SYSDATE from DUAL
+      connection-timeout: 60000
+      maximum-pool-size: 5
+      pool-name: vid-costos-staging
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        show_sql: true
+        hbm2ddl:
+          auto: none
+        jdbc:
+          batch_size: 500
+---
+# Configuracion RabbitMQ
+spring:
+  rabbitmq:
+    host: rabbit-gvc-staging
+    port: 5672
+    username: costosvid-user-mq-staging
+    password: costosvid-user-mq-staging
+    virtual-host: costosvid-vh
+    listener:
+      simple:
+        acknowledge-mode: manual
+        max-concurrency: 1
+        concurrency: 1

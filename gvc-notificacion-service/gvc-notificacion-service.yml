@@ -1,0 +1,14 @@
+notificacion:
+  websocket:
+    url: /ws
+    clave-header: HDR_GVC
+    canal-notificacion: /topic/notify
+  rabbitmq:
+    listener:
+      queue-name: gvc.notificacion.generar.queue
+  mensajes:
+    usuario-no-encontrado: Usuario no encontrado.
+    actualizacion-fallida: No se puede actualizar el recurso solicitado.
+    eliminacion-fallida: No se puede eliminar el recurso solicitado.
+    codigo-no-encontrado: Código no encontrado.
+    descripcion-no-encontrada: Descripción no encontrada.
